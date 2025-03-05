@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>User profile</title>
+  <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+<div th:replace="layouts/header :: header"></div>
+<main class="container">
+  <h1>User profile</h1>
+  <p>Hello, <span sec:authentication="name" /></p>
+  <form method="post" th:action="@{/logout}">
+    <button type="submit">Exit</button>
+  </form>
+  <h2>Change data</h2>
+  <form method="post" th:action="@{/user/update}">
+    <input type="text" name="email" placeholder="Enter email" th:value="${user.email}">
+    <input type="password" name="password" placeholder="Enter password">
+    <select name="roles">
+      <option th:each="role : ${roles}" th:value="${role}" th:text="${role}"></option>
+    </select>
+    <button type="submit">Change data</button>
+  </form>
+</main>
+<div th:replace="layouts/footer :: footer"></div>
+</body>
+</html>

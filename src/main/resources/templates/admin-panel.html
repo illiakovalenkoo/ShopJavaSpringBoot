@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Administrator panel</title>
+  <link rel="stylesheet" th:href="@{/main.css}">
+</head>
+<body>
+<div th:replace="layouts/header :: header"></div>
+<main class="container">
+  <div class="users" sec:authorize="hasAuthority('ADMIN')">
+    <h1>All users</h1>
+    <div th:each="user : ${users}">
+      <h1 th:text="'User: ' + ${user.username}"/>
+      <p th:text="'Email: ' + ${user.email} + '. Role on web-page: ' + ${user.roles}"/>
+      <form method="post" th:action="@{'/admin-panel/user-' + ${user.id}}">
+        <button type="submit">Author items</button>
+      </form>
+    </div>
+  </div>
+  <div class="block" sec:authorize="!hasAuthority('ADMIN')">
+    <h1>Access denied</h1>
+    <p>This page is available to administrators only.</p>
+  </div>
+</main>
+<div th:replace="layouts/footer :: footer"></div>
+</body>
+</html>
