@@ -16,9 +16,8 @@
             <p>Author <b th:text="${item.user.username}"/></p>
             <span th:text="${item.price} + '$'"/>
         </div>
-        <p>Author <b th:text="${item.user.username}"/></p>
     </div>
-    <a th:href="'/item/' + ${item.id} + '/update'" class="edit-btn" sec:authorize="hasAuthority('USER') || hasAuthority('ADMIN')">Редактировать</a>
+    <a th:href="'/item/' + ${item.id} + '/update'" class="edit-btn" sec:authorize="hasAuthority('USER') || hasAuthority('ADMIN')">Change</a>
     <form method="post" th:action="@{'/item/' + ${item.id} + '/delete'}" sec:authorize="hasAuthority('ADMIN')">
         <button type="submit">Delete</button>
     </form>
