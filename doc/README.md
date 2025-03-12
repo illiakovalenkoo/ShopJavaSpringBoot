@@ -55,7 +55,7 @@ To run this project, you need to have:
      ```
   2. **Run the JAR file**:
      ```sh
-     java -jar target/shop2.jar
+     java -jar shop2.jar
      ```
 
 ## 2. First-Time Execution Issues
