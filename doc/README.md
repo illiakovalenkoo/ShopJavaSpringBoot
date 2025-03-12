@@ -1,62 +1,99 @@
-# Shop2 Web Application
+# Shop2 - Spring Boot Web Application
 
-## Overview
-Shop2 is a **Spring Boot** web application that provides a basic e-commerce functionality. The project includes:
-- **User authentication** (Spring Security)
-- **Product management** (add, update, delete items)
-- **Database storage** (MySQL with Hibernate ORM)
-- **Thymeleaf-based UI** for frontend rendering
+**Shop2** is a Spring Boot-based web application that allows users to browse, manage, and purchase products. The project supports **user authentication**, **product management**, and **database integration using MySQL**.
 
-## Requirements
-Before running the project, ensure you have installed:
-- **Java 17+** (Tested with OpenJDK 23.0.2)
-- **IntelliJ IDEA** (Recommended for running the project)
-- **MAMP/XAMPP** or MySQL Server (Database needs to be running)
-- **Maven** (To handle dependencies)
+## 1. How to Download and Run the Project
 
-## Setup & Running in IntelliJ IDEA
-1. **Clone the repository or extract the project folder**
-   ```sh
-   git clone <repository-url>
-   cd shop2
+### **Prerequisites**
+
+To run this project, you need to have:
+
+- **Java Development Kit (JDK) 17+** installed. Download from [Adoptium JDK](https://adoptium.net/) or use OpenJDK.
+- **Apache Maven** installed. Download from [Maven](https://maven.apache.org/download.cgi).
+- **MySQL Database** installed. You can use [MAMP](https://www.mamp.info/en/) for an easy setup on macOS or Windows.
+
+### **Setting Up the MySQL Database**
+
+1. **Install MySQL or MAMP**:
+   - Download and install MySQL from the [official website](https://dev.mysql.com/downloads/).
+   - Alternatively, install [MAMP](https://www.mamp.info/en/) and start MySQL from there.
+
+2. **Create a New Database**:
+   ```sql
+   CREATE DATABASE shop_db;
    ```
-2. **Open the project in IntelliJ IDEA**
-   - Go to **File** -> **Open** -> Select the `shop2` project folder.
 
-3. **Check and Configure Database Connection**
-   - Open `src/main/resources/application.properties`
-   - Ensure the database credentials are correctly set:
+3. **Configure the Database Connection**:
+   - Open `src/main/resources/application.properties` and set the correct credentials:
      ```properties
-     spring.datasource.url=jdbc:mysql://localhost:3306/spring2_db?useUnicode=true&serverTimezone=UTC
+     spring.datasource.url=jdbc:mysql://localhost:3306/shop_db?useUnicode=true&serverTimezone=UTC
      spring.datasource.username=root
      spring.datasource.password=root
      spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
      ```
-   - If using **MAMP/XAMPP**, start your MySQL server manually.
 
-4. **Run the Application**
-   - In IntelliJ, go to `Shop2Application.java`
-   - Right-click -> **Run 'Shop2Application'**
-   - The server should start at `http://localhost:8008/`
+### **Clone the Repository**
 
-## Features
-- **User Management**: Secure login with Spring Security.
-- **Product Management**: Add, update, and delete products.
-- **Thymeleaf UI**: Dynamic HTML pages using Thymeleaf templates.
-- **Database Storage**: Products and user data are stored in a MySQL database.
+1. **Download the repository**:
+   ```sh
+   git clone https://github.com/illiakovalenkoo/ShopJavaSpringBoot.git
+   cd ShopJavaSpringBoot
+   ```
 
-## Troubleshooting
-### Database Connection Issues
-- Ensure MySQL is running on **port 3306** and the database `spring2_db` exists.
-- Use `mysql -u root -p` to check your MySQL setup.
-- Modify `application.properties` if your MySQL credentials are different.
+### **Run the Application**
 
-### Java Version Issues
-- Ensure you are running **Java 17 or newer**.
-- Check Java version with:
-  ```sh
-  java -version
-  ```
+- **Option 1: Using IntelliJ IDEA**:
+  1. Open the project in **IntelliJ IDEA**.
+  2. Navigate to `Shop2Application.java` in `src/main/java/com/example/shop2`.
+  3. Click **Run**.
+  4. The application starts at `http://localhost:8008/`.
 
-## License
-This project is open-source and free to use.
+- **Option 2: Running from the Terminal**:
+  1. **Build the project**:
+     ```sh
+     mvn clean package
+     ```
+  2. **Run the JAR file**:
+     ```sh
+     java -jar target/shop2.jar
+     ```
+
+## 2. First-Time Execution Issues
+
+- **Java not installed** → Install **JDK 17+**.
+- **MySQL database not configured** → Ensure MySQL is running and the `shop_db` database is created.
+- **Port already in use** → Ensure no other applications are using **port 8008**.
+
+## 3. Project Structure
+
+```
+│── src/                           # Source code of the application
+│── images/                        # Screenshots and images for documentation
+│── doc/                           # README.md file
+```
+
+## 4. Technologies Used
+
+- **Java 23+**
+- **Spring Boot**
+- **Spring Security**
+- **MySQL** (via MAMP or standalone server)
+- **Thymeleaf** (UI Rendering)
+- **Hibernate (JPA)**
+- **Maven** (for project management)
+
+## 5. Application Testing
+
+The application has been tested for:
+
+ **Database connectivity with MySQL**  
+ **User authentication and security**  
+ **Product management functions**  
+ **Graphical interface responsiveness**  
+ **REST API responses**  
+
+## 6. License
+
+This project is licensed under the **MIT License**. You are free to use, modify, and distribute this software with no restrictions. The software is provided "as is", without warranty of any kind.
+
+
