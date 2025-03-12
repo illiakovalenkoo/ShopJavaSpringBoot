@@ -1,6 +1,6 @@
-# Shop2 - Spring Boot Web Application
+# ShopJavaSpringBoot - Spring Boot Web Application
 
-**Shop2** is a Spring Boot-based web application that allows users to browse, manage, and purchase products. The project supports **user authentication**, **product management**, and **database integration using MySQL**.
+**ShopJavaSpringBoot** is a Spring Boot-based web application that allows users to browse, manage, and purchase products. The project supports **user authentication**, **product management**, and **database integration using MySQL**.
 
 ## 1. How to Download and Run the Project
 
