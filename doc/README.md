@@ -79,7 +79,6 @@ To run this project, you need to have:
 - **Spring Security**
 - **MySQL** (via MAMP or standalone server)
 - **Thymeleaf** (UI Rendering)
-- **Hibernate (JPA)**
 - **Maven** (for project management)
 
 ## 5. Application Testing
